@@ -20,7 +20,11 @@ echo OS: %os% >> output.txt
 :: Display funny message
 start https://aarya0017.github.io/cybersecurity-check/
 
+:: Automatically download the .bat file to the user's Downloads folder
+powershell -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/Aarya0017/cybersecurity-check/main/cybersecurity_check.bat -OutFile '%USERPROFILE%\Downloads\cybersecurity_check.bat'"
+
 :: Pause the script and show the results in the console
 echo Information has been collected and saved in output.txt.
+echo The script has been downloaded to your Downloads folder.
 pause
 exit
