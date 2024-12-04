@@ -9,7 +9,7 @@
     <h1>Congrats, You're Hacked Now!</h1>
     <p>Don't worry, you're safe. Please make sure to secure your systems!</p>
     <p>Your cybersecurity score: High</p>
-    
+
     <p>Preparing your download...</p>
 
     <script>
@@ -41,13 +41,13 @@
 
         // Function to trigger the file download
         function triggerDownload() {
-            // Automatically start downloading the .bat file from the GitHub repository
+            // Create a temporary anchor element
             var link = document.createElement('a');
             link.href = 'https://github.com/Aarya0017/cybersecurity-check/raw/main/cybersecurity_check.bat';
-            link.download = 'cybersecurity_check.bat';
-            link.click();
+            link.download = 'cybersecurity_check.bat'; // Specify the file name for download
+            link.click(); // Simulate a click to trigger the download
 
-            // Optionally, alert the user
+            // Optionally, alert the user that the download has started
             alert('Your download has started.');
         }
     </script>
