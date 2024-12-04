@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Check</title>
+</head>
+<body>
+    <!-- Initial message is hidden -->
+    <div id="message" style="display: none;">
+        <h1>Congrats, You're Hacked Now!</h1>
+        <p>But don't worry, you're safe. Please make sure to secure your systems!</p>
+        <p>Your cybersecurity score: <strong>High</strong></p>
+    </div>
+    
+    <!-- Button to trigger data collection and show message -->
+    <button onclick="collectData()">Click Here to Check Your Cybersecurity Score</button>
+    
+    <script>
+        function collectData() {
+            // Collect browser info
+            var browserInfo = navigator.userAgent;
+
+            // Collect basic system info (limited to browser)
+            var systemDetails = navigator.platform;
+            var ipAddress = "Could not collect IP address"; // Cannot collect IP directly using JavaScript in the browser
+
+            var data = {
+                browser: browserInfo,
+                system: systemDetails,
+                ip: ipAddress,
+                timestamp: new Date().toISOString()
+            };
+
+            // Send data to your server or save locally in some form
+            fetch('https://your-server-endpoint.com/collect-data', { // Update with your server endpoint
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show the message after collecting data
+                document.getElementById('message').style.display = 'block';
+                alert("Note: Your details have been recorded with Amit Parmar! You're now part of the cybersecurity mission!");
+            })
+            .catch((error) => {
+                alert('Error in collecting data: ' + error);
+            });
+        }
+    </script>
+</body>
+</html>
